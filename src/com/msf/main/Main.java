@@ -77,7 +77,7 @@ public class Main extends JFrame {
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(new JFrame(), "Choose Valid File Type(.xlsx, .xml or .xls)", "We Encountered a Problem",
+                    JOptionPane.showMessageDialog(new JFrame(), "We Encountered a Problem!", "Choose Valid File Type(.xlsx, .xml or .xls)",
                             JOptionPane.ERROR_MESSAGE);
 
                 }
