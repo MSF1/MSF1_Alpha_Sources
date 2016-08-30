@@ -26,7 +26,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/poi-ooxml-schemas-3.13-20150929.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/poi-scratchpad-3.13-20150929.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Downloads/javatuples-1.2-dist/javatuples-1.2/lib/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/OneDrive/Documents/GitHub/MSF1_Alpha_Sources/lib/javatuples-1.2.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/MachineLearningTools"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
