@@ -47,7 +47,7 @@ public class readingXML {
         villageName1[1] = villageName;
         altVillageName1[1] = altVillageName;
 
-        osmWriter.osmWriter(lat1, lon1, borehole_access1, handpump_condition1, waterPointName1, villageName1, altVillageName1);
+//        osmWriter.osmWriter(lat1, lon1, borehole_access1, handpump_condition1, waterPointName1, villageName1, altVillageName1);
 
     }
 
