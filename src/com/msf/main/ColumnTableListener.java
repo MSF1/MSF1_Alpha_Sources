@@ -28,7 +28,9 @@ public void tableChanged(TableModelEvent e) {
 		String columnName = model.getColumnName(column);
 			if(column ==0){
 				keys.put(row,value);
+				if(!dict.containsKey(row)){
 				dict.put(row, new HashMap<String,String>());
+				}
 			}else{
 				if(dict.containsKey(row)){
 					dict.get(row).put(columnName, value);
@@ -48,26 +50,29 @@ public ColumnTableListener(){
 public static Pair<ArrayList<String>,HashMap<String, HashMap<String, String>>> getAttributes() {
 	list = new ArrayList<String>();
 	dictionary = new HashMap<String, HashMap<String, String>>();
-	for(Integer key:keys.keySet()){
-		if(!list.contains(key)){
-		list.add(keys.get(key));
-		}
+	for(Integer row:keys.keySet()){
+	if(!list.contains(keys.get(row))){
+		list.add(keys.get(row));
 	}
-	
-	for(Integer key:dict.keySet()){
+	}
+	Integer[] set =keys.keySet().toArray(new Integer[0]);
+	for(Integer key:set){
 		if(dict.get(key).isEmpty()){
-			dict.remove(key);
 			continue;
 		}
 		String ke = dict.get(key).get("Key");
 		String value = dict.get(key).get("Value");
 		if(dictionary.containsKey(keys.get(key))){
 			dictionary.get(keys.get(key)).put(ke, value);
-		}
+		}else{
 		HashMap<String, String> hash = new HashMap<String,String>();
 		hash.put(ke, value);
 		dictionary.put(keys.get(key), hash);
+		}
 	}
+	list.add(Main.getLatColName());
+	list.add(Main.getLonColName());
+
 	System.out.println(dictionary);
 	System.out.println(list);
 	return new Pair<ArrayList<String>, HashMap<String, HashMap<String, String>>>(list,dictionary);

@@ -7,17 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -276,13 +273,14 @@ public class Main extends JFrame {
                             JOptionPane.PLAIN_MESSAGE);
                 } else if (get.substring(get.lastIndexOf("."), get.length()).equals(".xlsx")) {
                 	Pair<ArrayList<String>, HashMap<String, HashMap<String, String>>> att = ColumnTableListener.getAttributes();
+                	
                 	try {
                         XLSX_Reader.XLSX_converter(Main.get,att.getValue0(),att.getValue1());
                         JOptionPane.showMessageDialog(new JFrame(), "Converted Excel File", "Finished!",
                                 JOptionPane.PLAIN_MESSAGE);
                     } catch (IOException ex) {
-                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    	ex.printStackTrace();
+}
 
                 } else {
                     JOptionPane.showMessageDialog(new JFrame(), "Choose Valid File Type(.xlsx, .xml or .xls)", "We Encountered a Problem",
@@ -385,4 +383,4 @@ public class Main extends JFrame {
 		return null;
 
 	}
-}
+	}
