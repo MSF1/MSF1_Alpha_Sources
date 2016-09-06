@@ -13,6 +13,7 @@ public class Node {
 			attr.put(key, value);
 		}
 	}
+	
 	public HashMap<String, String> getAttr() {
 		return attr;
 	}

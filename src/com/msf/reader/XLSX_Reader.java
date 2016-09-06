@@ -70,7 +70,7 @@ public class XLSX_Reader{
 					}
 				}
 				System.out.println(indexs);
-				for (int row_count=0;row_count<sheet.getPhysicalNumberOfRows();row_count++){
+				for (int row_count=1;row_count<sheet.getPhysicalNumberOfRows();row_count++){
 //					System.out.print(rows);
 //					System.out.println();
 					cell_value = new HashMap<String, String>();

@@ -7,6 +7,7 @@ package com.msf.writer;
 
 import com.msf.main.Main;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,6 +18,12 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.openstreetmap.josm.gui.progress.ProgressMonitor;
+import org.openstreetmap.josm.gui.progress.ProgressMonitorExecutor;
+import org.openstreetmap.josm.io.IllegalDataException;
+import org.openstreetmap.josm.io.OsmApi;
+import org.openstreetmap.josm.io.OsmImporter;
+import org.openstreetmap.josm.io.OsmReader;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -50,7 +57,7 @@ public class osmWriter {
 
 			for (int i = 0; i < rows.length; i++) {
 				//  node element
-				if (rows[i].get(Main.getLatColName()) != null && rows[i].get(Main.getLonColName()) != null) {//Checking to ensure the node has coordinates, else it's not written
+				if (rows[i].get(Main.getLatColName()) != null && rows[i].get(Main.getLonColName()) != null&& !rows[i].get(Main.getLatColName()).equals("")&& !rows[i].get(Main.getLatColName()).equals("")) {//Checking to ensure the node has coordinates, else it's not written
 					this.node = osm.createElement("node");
 					rootElement.appendChild(node);
 
@@ -109,6 +116,15 @@ public class osmWriter {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+//		try {
+//			new OsmImporter().importData(new File(Main.out), org.openstreetmap.josm.gui.progress.NullProgressMonitor.INSTANCE);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IllegalDataException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	public void constructElement(Document osm,Element node, String key, HashMap<String, String> row_values){
 		if (row_values != null) {

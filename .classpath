@@ -28,5 +28,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="lib" path="D:/OneDrive/Documents/GitHub/MSF1_Alpha_Sources/lib/javatuples-1.2.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/MachineLearningTools"/>
+	<classpathentry kind="lib" path="C:/Users/R7-371T/Desktop/josm-tested.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
